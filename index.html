@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Shift Swap Demo: Vet Practice</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<div class="demo-banner">DEMO ONLY: all vets, shifts and requests are fake placeholder data stored in this browser (localStorage). Not connected to Cornerstone.</div>
+<header class="topbar">
+  <div class="brand">🐾 Shift Swap <span class="tag">demo</span></div>
+  <nav class="roles" role="tablist" aria-label="Demo role">
+    <button data-role="vet">Vet</button>
+    <button data-role="manager">Manager</button>
+    <button data-role="desk">Front desk</button>
+  </nav>
+  <div class="who" id="who"></div>
+</header>
+
+<main class="layout">
+  <section class="card schedule-card">
+    <div class="sched-head">
+      <h2>Schedule</h2>
+      <div class="sched-ctrls">
+        <button id="prev" aria-label="Previous">‹</button>
+        <span id="rangeLabel"></span>
+        <button id="next" aria-label="Next">›</button>
+        <button id="today">Today</button>
+        <div class="seg">
+          <button data-view="week">Week</button>
+          <button data-view="month">Month</button>
+        </div>
+      </div>
+    </div>
+    <div id="schedule"></div>
+    <div id="legend" class="legend"></div>
+    <p class="hint">Chips show placeholder names (&ldquo;Sample A&rdquo; = Dr. Sample A). Tap Month for the full month view. On phones, chips show the letter only.</p>
+    <div class="howto">
+      <h3>How a change flows (demo)</h3>
+      <ol>
+        <li><b>Direct swap:</b> vet picks one of their shifts + a colleague's shift → colleague accepts.</li>
+        <li><b>Swap board:</b> vet posts a shift (and dates they could work) → colleagues offer a shift or to cover → poster picks one offer.</li>
+        <li><b>PTO:</b> vet marks a shift as time off → manager approves → shift shows as <b>★ Available</b> → any vet picks it up.</li>
+        <li><b>Manager</b> approves (conflict check: already working that day / double-booked across locations) → schedule updates.</li>
+        <li><b>Front desk</b> gets a checklist to move appointments in Cornerstone by hand and ticks each line.</li>
+      </ol>
+    </div>
+  </section>
+
+  <section class="panel" id="panel"></section>
+</main>
+
+<footer class="foot">
+  <button id="reset" class="link">Reset demo data</button>
+  · Sample data only · Appointment moves are still done by hand in Cornerstone
+</footer>
+<div id="toast" class="toast" hidden></div>
+<script src="app.js"></script>
+</body>
+</html>
